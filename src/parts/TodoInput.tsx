@@ -1,4 +1,4 @@
-import { TextField, Button, Box } from '@mui/material'
+import { TextField, Button, Box } from '@mui/material';
 
 interface TodoInputProps {
   value: string
@@ -15,7 +15,7 @@ export const TodoInput = ({ value, onChange, onSubmit }: TodoInputProps) => {
         onChange={(e) => onChange(e.target.value)}
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
-            onSubmit()
+            onSubmit();
           }
         }}
         placeholder="新しいタスクを入力"
@@ -29,5 +29,5 @@ export const TodoInput = ({ value, onChange, onSubmit }: TodoInputProps) => {
         追加
       </Button>
     </Box>
-  )
-}
+  );
+};

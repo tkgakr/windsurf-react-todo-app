@@ -1,6 +1,6 @@
-import { List } from '@mui/material'
-import { TodoItem } from '../parts/TodoItem'
-import { Todo } from '../types/todo'
+import { List } from '@mui/material';
+import { TodoItem } from '../parts/TodoItem';
+import { Todo } from '../types/todo';
 
 interface TodoListProps {
   todos: Todo[]
@@ -20,5 +20,5 @@ export const TodoList = ({ todos, onToggle, onDelete }: TodoListProps) => {
         />
       ))}
     </List>
-  )
-}
+  );
+};

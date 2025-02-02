@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import { Container, Typography, Box } from '@mui/material'
-import { TodoInput } from '../parts/TodoInput'
-import { TodoList } from '../containers/TodoList'
-import { Todo } from '../types/todo'
+import { useState } from 'react';
+import { Container, Typography, Box } from '@mui/material';
+import { TodoInput } from '../parts/TodoInput';
+import { TodoList } from '../containers/TodoList';
+import { Todo } from '../types/todo';
 
 export const TodoPage = () => {
-  const [todos, setTodos] = useState<Todo[]>([])
-  const [newTodo, setNewTodo] = useState('')
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [newTodo, setNewTodo] = useState('');
 
   const handleAddTodo = () => {
     if (newTodo.trim() !== '') {
@@ -17,22 +17,22 @@ export const TodoPage = () => {
           text: newTodo.trim(),
           completed: false
         }
-      ])
-      setNewTodo('')
+      ]);
+      setNewTodo('');
     }
-  }
+  };
 
   const handleToggleTodo = (id: number) => {
     setTodos(
       todos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
-    )
-  }
+    );
+  };
 
   const handleDeleteTodo = (id: number) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  }
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
 
   return (
     <Container maxWidth="sm">
@@ -52,5 +52,5 @@ export const TodoPage = () => {
         />
       </Box>
     </Container>
-  )
-}
+  );
+};
