@@ -2,6 +2,7 @@ import {
   ListItem,
   ListItemText,
   IconButton,
+  Checkbox,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Todo } from "../types/todo";
@@ -15,13 +16,10 @@ interface TodoItemProps {
 export const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
   return (
     <ListItem
-      onClick={() => onToggle(todo.id)}
       sx={{
-        textDecoration: todo.completed ? "line-through" : "none",
         bgcolor: "background.paper",
         mb: 1,
         borderRadius: 1,
-        cursor: "pointer",
       }}
       secondaryAction={
         <IconButton
@@ -30,12 +28,22 @@ export const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
             e.stopPropagation();
             onDelete(todo.id);
           }}
+          aria-label="削除"
         >
           <DeleteIcon />
         </IconButton>
       }
     >
-      <ListItemText primary={todo.text} />
+      <Checkbox
+        checked={todo.completed}
+        onChange={() => onToggle(todo.id)}
+      />
+      <ListItemText
+        primary={todo.text}
+        sx={{
+          textDecoration: todo.completed ? "line-through" : "none",
+        }}
+      />
     </ListItem>
   );
 };
