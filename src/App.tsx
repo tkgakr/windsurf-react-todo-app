@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 import { Container, Typography, TextField, Button, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Box } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 
@@ -82,7 +82,7 @@ function App() {
               <ListItemSecondaryAction>
                 <IconButton
                   edge="end"
-                  onClick={(e) => {
+                  onClick={(e: MouseEvent) => {
                     e.stopPropagation()
                     handleDeleteTodo(todo.id)
                   }}
